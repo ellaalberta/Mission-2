@@ -1,0 +1,3 @@
+import http from 'node:http';import {readFile} from 'node:fs/promises';import path from 'node:path';
+const root=path.resolve('dist'),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'};
+http.createServer(async(req,res)=>{try{let url=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/Mission-2/,'');if(url==='/'||url==='')url='/index.html';let p=path.resolve(root,'.'+url);if(!p.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',types[path.extname(p)]||'text/plain');res.end(await readFile(p));}catch{res.statusCode=404;res.end('Not found');}}).listen(4187,'127.0.0.1',()=>console.log('Local: http://127.0.0.1:4187/Mission-2/'));
