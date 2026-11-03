@@ -4,3 +4,7 @@ validate(JSON.parse(await readFile('data/competitor_data.json','utf8')));
 await rm('dist',{recursive:true,force:true});await mkdir('dist');
 for(const p of ['index.html','src','data'])await cp(p,`dist/${p}`,{recursive:true});
 await writeFile('dist/.nojekyll','');console.log('Production build complete: dist/ (relative assets support /Mission-2/)');
+
+await mkdir('dist/laboratory',{recursive:true});
+for(const p of ['index.html','src','data','vendor'])await cp(`laboratory/${p}`,`dist/laboratory/${p}`,{recursive:true});
+console.log('Mission 3 laboratory bundled at /laboratory/');

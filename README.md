@@ -42,3 +42,7 @@ Position labels and opportunities come from Mission 1. Proposed differentiation 
 - `.github/workflows/pages.yml`: GitHub Pages deployment.
 
 Source links open in new tabs with `noopener noreferrer`. Rendered research text is escaped. The static application does not collect information or send research to any analytics service.
+
+## Mission 3 laboratory
+
+The Pricing and Cost Laboratory is published at https://ellaalberta.github.io/Mission-2/laboratory/. See [laboratory/README.md](laboratory/README.md) for use, model assumptions, evidence and development instructions. The original venture website is unchanged.
