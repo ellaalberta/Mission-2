@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{template,templates,validate}from'../model.js';
+for(const name of templates)test(`${name} provides distinct editable geometry`,()=>{const p=validate(template(name));assert.ok(p.objects.length>=3);assert.equal(new Set(p.objects.map(o=>o.id)).size,p.objects.length);assert.ok(p.objects.every(o=>o.shape!=='glb'));});
+test('Invalid and empty projects cannot be confirmed',()=>{const p=template();p.objects=[];assert.throws(()=>validate(p));const q=template();q.objects[0].scale[0]=-1;assert.throws(()=>validate(q));q.objects[0].scale[0]=NaN;assert.throws(()=>validate(q))});

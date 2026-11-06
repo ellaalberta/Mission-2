@@ -8,3 +8,6 @@ await writeFile('dist/.nojekyll','');console.log('Production build complete: dis
 await mkdir('dist/laboratory',{recursive:true});
 for(const p of ['index.html','src','data','vendor'])await cp(`laboratory/${p}`,`dist/laboratory/${p}`,{recursive:true});
 console.log('Mission 3 laboratory bundled at /laboratory/');
+
+await cp('studio/dist','dist/studio',{recursive:true});
+console.log('Venture 3D Studio bundled at /studio/');
